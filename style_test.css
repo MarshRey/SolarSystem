@@ -1,0 +1,124 @@
+:root {
+    /* Time of Earth Orbit */
+    --earth-orbit-time: 36.5s;
+
+    /* Relative Orbit Time Scalers */
+    --venus-orbit-time: calc(var(--earth-orbit-time) * 0.615);
+    --mercury-orbit-time: calc(var(--earth-orbit-time) * 0.24);
+    --mars-orbit-time: calc(var(--earth-orbit-time) * 1.88);
+    --jupitor-orbit-time: calc(var(--earth-orbit-time) * 11.86);
+    --saturn-orbit-time: calc(var(--earth-orbit-time) * 29.46);
+    --uranus-orbit-time: calc(var(--earth-orbit-time) * 84.01);
+    --neptune-orbit-time: calc(var(--earth-orbit-time) * 164.8);
+
+    /* Sun Size */
+    --sun-size: 10em;
+
+    /* Relative Planet Sizes Scalers */
+    --mercury-size: calc(var(--sun-size) * 0.2);
+    --venus-size: calc(var(--sun-size) * 0.5);
+    --earth-size: calc(var(--sun-size) * 0.6);
+    --moon-size: calc(var(--earth-size) * 0.27);
+    --mars-size: calc(var(--sun-size) * 0.3);
+    --jupitor-size: calc(var(--sun-size) * 0.7);
+    --saturn-size: calc(var(--sun-size) * 0.5);
+    --uranus-size: calc(var(--sun-size) * 0.2);
+    --neptune-size: calc(var(--sun-size) * 0.2);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.solar_system {
+  position: relative;
+  width: 40em;
+  height: 40em;
+}
+
+.sun {
+  position: absolute;
+  background-color: yellow;
+  top: 15em;
+  left: 15em;
+  height: 10em;
+  width: 10em;
+  border-radius: 50%;
+  box-shadow: 0 0 3em yellow;
+}
+
+.earth, .moon{
+  position: absolute;
+  border-radius: 50%;
+  border-color: white transparent transparent transparent;
+  border-style: solid;
+  border-width: 0.1em 0.1em 0 0;
+}
+
+.earth {
+  width: 30em;
+  height: 30em;
+  top: 5em;
+  left: 5em;
+  animation: orbit 36s linear infinite;
+}
+
+.moon {
+  width: 8em;
+  height: 8em;
+  top: 0;
+  right: 0;
+  animation: orbit 6s linear infinite;
+}
+
+/* .mercury {
+  width: 15em;
+  height: 15em;
+  top: 4em;
+  left: 4em;
+  animation: orbit 9s linear infinite;
+} */
+
+.earth::before, .moon::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    width: 3em;
+    height: 3em;
+    top: 2.8em;
+    right: 2.8em;
+    background-color: aqua;
+}
+
+.moon::before {
+    width: 1.2em;
+    height: 1.2em;
+    top: 0.8em;
+    right: 0.2em;
+    background-color: gray;
+}
+
+/* .mercury::before {
+    width: 0.6em;
+    height: 0.6em;
+    top: 0.6em;
+    right: 0.6em;
+    background-color: gray;
+} */
+
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+ 
